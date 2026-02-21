@@ -13,4 +13,5 @@ urlpatterns = [
     path('submitendpoint', views.submit_django_form, name='submit_example'), # how to take input from client
 
     path('templating', views.template_view, name='templating'), # how to create data by client
+    path('todos', views.todos_view, name="todo_view")
 ]

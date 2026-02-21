@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotAllowed
-from .forms import PersonForm
+
+from .forms import PersonForm, TodoForm
+from .models import Todo
 
 # Create your views here.
 
@@ -67,3 +69,18 @@ def template_view(request):
     }
 
     return render(request, "todos/template_demo.html", context)
+
+
+def todos_view(request):
+    if request.method == "POST":
+        form = TodoForm(request.POST)
+
+        if form.is_valid():
+            todo = form.save()
+            return HttpResponse('Todo successfully created!')
+        
+    else:
+        form = TodoForm()
+        todos = Todo.objects.all()
+
+        return render(request, 'todos/todos.html', {'form': form, 'todos':todos})
