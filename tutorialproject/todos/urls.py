@@ -10,5 +10,5 @@ urlpatterns = [
     path("helloname/<str:name>", views.hello_path, name="hello_view"), # how to get name from url
     path("helloquery", views.hello_query, name = "hello_query"), # how to get data from query style
     path('postendpoint', views.post_example, name='post_example'), # how to create data by client
-    path('submitendpoint', views.submit_example, name='submit_example') # how to take input from client
+    path('submitendpoint', views.submit_django_form, name='submit_example') # how to take input from client
 ]
