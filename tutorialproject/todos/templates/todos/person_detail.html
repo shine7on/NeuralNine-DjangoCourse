@@ -1,0 +1,12 @@
+<ul>
+    {% for todo in person.todos.all %} <!-- todos. declear in the todos class, models file-->>
+    <li><b>{{todo.id}} - {{todo.title}}:</b> (Done: {{todo.done}})</li>
+    {% endfor %}
+</ul>
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>

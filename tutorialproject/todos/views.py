@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseNotAllowed
 
 from .forms import PersonForm, TodoForm
-from .models import Todo
+from .models import Todo, Person
 
 # Create your views here.
 
@@ -84,3 +84,22 @@ def todos_view(request):
         todos = Todo.objects.all()
 
         return render(request, 'todos/todos.html', {'form': form, 'todos':todos})
+    
+def person_detail(request, person_id):
+    person = Person.objects.filter(id=person_id).first()
+
+    return render('todos/person_detail.html', {'person':person})
+
+
+def delete_todo(request, todo_id):
+    todo = Todo.objects.filter(id=todo_id).first()
+    todo.delete()
+
+    return HttpResponse("Deleted!")
+
+def toggle_todo_done(request, todo_id):
+    todo = Todo.objects.filter(id=todo_id).first()
+    todo.done = not todo.done
+    todo.save()
+
+    return HttpResponse("Toggle!")
