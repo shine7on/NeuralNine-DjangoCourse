@@ -26,7 +26,7 @@ class Todo(models.Model):
     deadline = models.DateField(null=True, blank=True) # not required
     priority = models.IntegerField(choices=PriorityChoices.choices, null=True, blank=True)
 
-    # c owner = models.ForeignKey(Person, on_delete=models.CASCADE, related_name="todos", blank=True, null=True)
+    owner = models.ForeignKey(Person, on_delete=models.CASCADE, related_name="todos", blank=True, null=True)
 
     def __str__(self):
         return f"{self.id} - {self.title}"

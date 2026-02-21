@@ -1,6 +1,6 @@
 <ul>
     {% for todo in todos %}
-    <li><b>{{todo.id}} - {{todo.title}}:</b> (Done: {{todo.done}})</li>
+    <li><b>{{todo.id}} - {{todo.title}}:</b> (Done: {{todo.done}}) (Owned By: {{todo.owner.name}})</li>
     {% endfor %}
 </ul>
 
