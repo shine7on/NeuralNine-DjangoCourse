@@ -88,7 +88,7 @@ def todos_view(request):
 def person_detail(request, person_id):
     person = Person.objects.filter(id=person_id).first()
 
-    return render('todos/person_detail.html', {'person':person})
+    return render(request, 'todos/person_detail.html', {'person':person})
 
 
 def delete_todo(request, todo_id):

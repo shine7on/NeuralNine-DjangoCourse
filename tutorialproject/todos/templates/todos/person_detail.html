@@ -1,5 +1,5 @@
 <ul>
-    {% for todo in person.todos.all %} <!-- todos. declear in the todos class, models file-->>
+    {% for todo in person.todos.all %} <!-- todos. declear in the todos class, models file-->
     <li><b>{{todo.id}} - {{todo.title}}:</b> (Done: {{todo.done}})</li>
     {% endfor %}
 </ul>
